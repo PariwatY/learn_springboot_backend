@@ -164,12 +164,4 @@ class TestUserService {
 
 	}
 
-	interface AddressTestCreateData3 {
-
-		String line1 = "888/5";
-		String line2 = "bangkok province";
-		String zipcode = "1050";
-
-	}
-
 }

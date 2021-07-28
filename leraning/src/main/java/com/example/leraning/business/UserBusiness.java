@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import com.example.leraning.model.MLoginRegister;
 import com.example.leraning.model.MRegisterRequest;
 import com.example.leraning.model.MRegisterResponse;
+import com.example.leraning.service.TokenService;
 import com.example.leraning.service.UserService;
 
 import java.util.Arrays;
@@ -33,6 +34,9 @@ public class UserBusiness {
    private UserService userService;
    @Autowired
    private userMapper userMapper;
+
+   @Autowired
+   private TokenService tokenService;
 
    // Login
    public String login(MLoginRegister request) throws BaseException {
@@ -53,9 +57,7 @@ public class UserBusiness {
 
       // TODO :generate JWT
 
-      String token = "test jwt";
-
-      return token;
+      return tokenService.tokennize(user);
 
    }
 
