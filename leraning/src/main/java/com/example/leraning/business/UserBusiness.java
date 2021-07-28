@@ -58,7 +58,7 @@ public class UserBusiness {
       // TODO :generate JWT
 
       return tokenService.tokennize(user);
-
+      // TODO :generate JWT
    }
 
    // Register
