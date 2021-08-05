@@ -12,8 +12,11 @@ import com.example.leraning.mapper.userMapper;
 import java.io.IOException;
 import java.lang.reflect.Array;
 
+import org.springframework.security.core.Authentication;
 import org.aspectj.apache.bcel.util.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.example.leraning.model.MLoginRegister;
@@ -21,6 +24,7 @@ import com.example.leraning.model.MRegisterRequest;
 import com.example.leraning.model.MRegisterResponse;
 import com.example.leraning.service.TokenService;
 import com.example.leraning.service.UserService;
+import com.example.leraning.util.SecurityUtil;
 
 import java.util.Arrays;
 import java.util.List;
@@ -37,6 +41,17 @@ public class UserBusiness {
 
    @Autowired
    private TokenService tokenService;
+
+   // private final UserService userService;
+   // private final userMapper userMapper;
+   // private final TokenService tokenService;
+
+   // public UserService(UserService userService, userMapper
+   // userMapper,TokenService tokenService) {
+   // this.userService = userService;
+   // this.userMapper = userMapper;
+   // this.tokenService = tokenService;
+   // }
 
    // Login
    public String login(MLoginRegister request) throws BaseException {
@@ -58,7 +73,25 @@ public class UserBusiness {
       // TODO :generate JWT
 
       return tokenService.tokennize(user);
-      // TODO :generate JWT
+
+   }
+
+   public String refreshToken() throws BaseException {
+      Optional<String> opt = SecurityUtil.getCurrentUserId();
+      if (opt.isEmpty()) {
+         throw UserException.unAuthorized();
+      }
+
+      String userId = opt.get();
+
+      Optional<User> optUserId = userService.findById(userId);
+      if (optUserId.isEmpty()) {
+         throw UserException.notFound();
+      }
+
+      User user = optUserId.get();
+
+      return tokenService.tokennize(user);
    }
 
    // Register

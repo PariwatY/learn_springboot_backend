@@ -1,6 +1,11 @@
 package com.example.leraning.config;
 
+import com.example.leraning.config.token.TokenFilter;
+import com.example.leraning.config.token.TokenFilterConfigurer;
+import com.example.leraning.service.TokenService;
+
 import org.hibernate.StatelessSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,6 +19,9 @@ import lombok.Data;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private TokenService service;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -30,7 +38,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().disable().csrf().disable().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
-                .antMatchers("/user/register", "/user/login").anonymous().anyRequest().authenticated();
+                .antMatchers("/user/register", "/user/login").anonymous().anyRequest().authenticated().and()
+                .apply(new TokenFilterConfigurer(service));
     }
 
 }
