@@ -5,11 +5,10 @@ The topic of this backend
 3. Basic security
 4. Basic Create/Update/Delete data by using Springboot
 5. Basic Unit Test
-
+6. JWT
 
 
 Plan Next to do
-6. JWT
 7. Email and Scheduler
 
 
