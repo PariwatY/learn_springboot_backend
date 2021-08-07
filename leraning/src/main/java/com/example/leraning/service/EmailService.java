@@ -14,7 +14,7 @@ public class EmailService {
 
 
     private final  JavaMailSender mailSender;
-    @Value("${spring.mail.username}")
+    @Value("${app.email.from}")
     private String from;
 
     public EmailService(JavaMailSender mailSender) {
@@ -28,7 +28,7 @@ public class EmailService {
             helper.setFrom(from+"@gmail.com");
             helper.setTo(to);
             helper.setSubject(subject);
-            helper.setText(html);
+            helper.setText(html,true);
         };
         mailSender.send(message);
     }
