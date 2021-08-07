@@ -21,15 +21,19 @@ public class EmailBusiness {
     }
 
     public void sendActivateUserEmail(String email,String name,String token) throws BaseException {
-
+        //prepare html
         String html;
         try{
-            html = readEmailTemplate("email-activate-user");
+            html = readEmailTemplate("email-activate-user.html");
         }catch(IOException e){
             throw EmailException.templateNotFound();
         }
+        String finallink = "http://localohost:4200/activate/"+token;
+        html = html.replace("${P_NAME}",name);
+        html = html.replace("${LINK}",finallink);
 
-        String subject = "";
+        //prepare Subject
+        String subject = "Please activate your account";
         emailService.send(email,subject,html);
 
     }

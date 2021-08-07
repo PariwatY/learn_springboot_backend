@@ -11,14 +11,15 @@ import javax.mail.internet.MimeMessage;
 @Service
 public class EmailService {
 
-    @Value("@{spring.mail.username}")
+
+
+    private final  JavaMailSender mailSender;
+    @Value("${spring.mail.username}")
     private String from;
 
+    public EmailService(JavaMailSender mailSender) {
 
-    private final  JavaMailSender mailSendor;
-    public EmailService(JavaMailSender mailSendor) {
-
-        this.mailSendor = mailSendor;
+        this.mailSender = mailSender;
     }
 
     public void send(String to,String subject,String html){
@@ -29,6 +30,6 @@ public class EmailService {
             helper.setSubject(subject);
             helper.setText(html);
         };
-        mailSendor.send(message);
+        mailSender.send(message);
     }
 }
