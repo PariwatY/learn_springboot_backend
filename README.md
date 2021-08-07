@@ -7,6 +7,7 @@ The topic of this backend
 5. Basic Unit Test
 6. JWT
 7. Email and Scheduler
+
 Plan Next to do
 8. Websocket and Frontend (Angular Js)
 
