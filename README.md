@@ -6,10 +6,10 @@ The topic of this backend
 4. Basic Create/Update/Delete data by using Springboot
 5. Basic Unit Test
 6. JWT
-
-
-Plan Next to do
 7. Email and Scheduler
+Plan Next to do
+8. Websocket and Frontend (Angular Js)
+
 
 
 Credit: I have leraning with this youtube chanel:Natthapon Pinyo  Ex:https://www.youtube.com/watch?v=vcHEEh-WG9E
