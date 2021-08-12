@@ -21,7 +21,7 @@ public class UserSchedule {
     // 2 => minute
     // 3 => hour
     // 4 => day
-    // 5 => month
+    // 5 => monthความคิด คอร์ด
     // 6 => year
 
     //Every at 00 second (UTC TIME)
