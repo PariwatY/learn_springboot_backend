@@ -58,6 +58,7 @@ public class UserService {
     }
 
     public User create(String email, String password, String name) throws BaseException {
+        // validate
         if (Objects.isNull(email)) {
             throw UserException.createEmailNull();
         }
@@ -68,7 +69,10 @@ public class UserService {
             throw UserException.createNameNull();
         }
         // Verify
-        if (repository.existsById(email)) {
+       Optional<User> optEmail = repository.findByEmail(email);
+
+
+        if (!optEmail.isEmpty()) {
             throw UserException.createEmailDuplicate();
         }
 

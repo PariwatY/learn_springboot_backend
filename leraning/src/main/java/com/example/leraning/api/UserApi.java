@@ -1,15 +1,13 @@
 package com.example.leraning.api;
 
 import java.io.IOException;
+
+import com.example.leraning.model.*;
 import org.springframework.web.bind.annotation.PathVariable;
 import com.example.leraning.exception.BaseException;
 import com.example.leraning.exception.UserException;
 import com.example.leraning.business.UserBusiness;
 import com.example.leraning.entity.User;
-import com.example.leraning.model.MLoginRegister;
-import com.example.leraning.model.MRegisterRequest;
-import com.example.leraning.model.MRegisterResponse;
-import com.example.leraning.model.TestResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,8 +38,8 @@ public class UserApi {
     // }
     @PostMapping
     @RequestMapping("/login")
-    public ResponseEntity<String> login(@RequestBody MLoginRegister request) throws BaseException {
-        String response = business.login(request);
+    public ResponseEntity<MloginResponse> login(@RequestBody MLoginRegister request) throws BaseException {
+        MloginResponse response = business.login(request);
         return ResponseEntity.ok(response);
     }
 

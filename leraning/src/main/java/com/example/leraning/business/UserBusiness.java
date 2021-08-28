@@ -1,5 +1,6 @@
 package com.example.leraning.business;
 
+import com.example.leraning.model.MloginResponse;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -54,7 +55,7 @@ public class UserBusiness {
    // }
 
    // Login
-   public String login(MLoginRegister request) throws BaseException {
+   public MloginResponse login(MLoginRegister request) throws BaseException {
       // Validate
 
       // Verify Database
@@ -70,9 +71,11 @@ public class UserBusiness {
          throw UserException.loginFailPasswordIncorrect();
       }
 
-      // TODO :generate JWT
 
-      return tokenService.tokennize(user);
+
+      MloginResponse response = new MloginResponse();
+      response.setToken(tokenService.tokennize(user));
+      return response;
 
    }
 
