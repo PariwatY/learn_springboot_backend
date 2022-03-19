@@ -66,7 +66,7 @@ public class UserBusiness {
          throw FileException.fileNull();
       }
       // Validate Size
-      if (file.getSize() > 1048576 * 2) {
+      if (file.getSize() > 1_048_576 * 2) {
          throw FileException.fileMaxSize();
       }
 

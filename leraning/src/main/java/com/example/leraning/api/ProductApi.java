@@ -21,7 +21,6 @@ public class ProductApi {
 
     @GetMapping("{id}")
     public ResponseEntity<String> getProductById(@PathVariable("id") String id) throws BaseException{
-
         String response = business.getProductById(id);
         return ResponseEntity.ok(response);
     }
