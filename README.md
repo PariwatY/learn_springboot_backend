@@ -1,5 +1,6 @@
-# This is first Leraning Backend with Spring boot
-The topic of this backend
+# About Project
+- This is first Leraning Backend with Spring boot
+Topic
 1. Basic create GET/POST API
 2. Basic connect Database (Run on Docker Postgres)
 3. Basic security
@@ -15,4 +16,4 @@ Plan Next to do
 
 
 
-Credit: I have leraning with this youtube chanel:Natthapon Pinyo  Ex:https://www.youtube.com/watch?v=vcHEEh-WG9E
+Credit: https://www.youtube.com/watch?v=vcHEEh-WG9E
