@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "169cfe71-3b8f-4779-bae3-f2b8cda0cf74",
+		"name": "aliianz",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17882935"
+	},
+	"item": [
+		{
+			"name": "1. Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n            \"email\":\"pek2222@hotmail.com\",\n            \"password\":\"pek2222\",\n            \"name\":\"pek2222\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8081/employee/v1/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"employee",
+						"v1",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"header\": {\n        \"sendDateTime\": \"2022-09-24T22:38:12.297620\",\n        \"responseDateTime\": \"\"\n    },\n    \"body\": {\n        \"data\": {\n            \"email\": \"pek2222@hotmail.com\",\n            \"password\": \"pek2222\"\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/employee/v1/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"employee",
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. GetAllEmployee",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiZW1wbG95ZWUiLCJpc3MiOiJBbGlpYW56U2VydmljZSIsImV4cCI6MTY2NDIwMDI4MywiaWF0IjoxNjY0MTk5NjgzLCJlbWFpbCI6InBla0Bob3RtYWlsLmNvbSJ9.yg42TmWVeaY1NBvxgjvrDwnXs0HN9c4lo0Q0B28uCUE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"header\": {\n        \"sendDateTime\": \"2022-09-24T22:38:12.297620\",\n        \"responseDateTime\": \"\"\n    },\n    \"body\": {\n        \"data\": {\n            \"email\": \"pek@hotmail.com\"\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/employee/v1/allEmployee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"employee",
+						"v1",
+						"allEmployee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. GetEmployeeById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiZW1wbG95ZWUiLCJpc3MiOiJBbGlpYW56U2VydmljZSIsImV4cCI6MTY2NDIwMDEwOSwiaWF0IjoxNjY0MTk5NTA5LCJlbWFpbCI6InBlazIyMjJAaG90bWFpbC5jb20ifQ.T3dazOY8NuzGAU21L8btsujjVnRLl9gup_whaMcR7Ww",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"header\": {\n        \"sendDateTime\": \"2022-09-24T22:38:12.297620\",\n        \"responseDateTime\": \"\"\n    },\n    \"body\": {\n        \"data\": {\n            \"email\":\"pek2222@hotmail.com\",\n            \"name\":\"pek2222\"\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/employee/v1/employee/39ad66e0-17e1-4b45-9365-b88bac511591",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"employee",
+						"v1",
+						"employee",
+						"39ad66e0-17e1-4b45-9365-b88bac511591"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. UpdateEmployeeById",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiZW1wbG95ZWUiLCJpc3MiOiJBbGlpYW56U2VydmljZSIsImV4cCI6MTY2NDIwMDEwOSwiaWF0IjoxNjY0MTk5NTA5LCJlbWFpbCI6InBlazIyMjJAaG90bWFpbC5jb20ifQ.T3dazOY8NuzGAU21L8btsujjVnRLl9gup_whaMcR7Ww",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"header\": {\n        \"sendDateTime\": \"2022-09-24T22:38:12.297620\",\n        \"responseDateTime\": \"\"\n    },\n    \"body\": {\n        \"data\": {\n            \"email\": \"pek2222@hotmail.com\",\n            \"name\": \"pek2222eee\"\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/employee/v1/upEmployee/39ad66e0-17e1-4b45-9365-b88bac511591",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"employee",
+						"v1",
+						"upEmployee",
+						"39ad66e0-17e1-4b45-9365-b88bac511591"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6. DeleteEmployeeById",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiZW1wbG95ZWUiLCJpc3MiOiJBbGlpYW56U2VydmljZSIsImV4cCI6MTY2NDA4NjIwMSwiZW1haWwiOiJ0ZXN0MzMzM0Bob3RtYWlsLmNvbSJ9.TbEPeC5CeQeXsRpCooa7yG2cOAK3pKDXovVd2ifsd9U",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"header\": {\n        \"sendDateTime\": \"2022-09-24T22:38:12.297620\",\n        \"responseDateTime\": \"\"\n    },\n    \"body\": {\n        \"data\": {\n            \"email\": \"pek@hotmail.com\",\n            \"name\": \"pek\"\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/employee/v1/delEmployee/675339a1-e99e-4446-855b-4e41858cb64",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"employee",
+						"v1",
+						"delEmployee",
+						"675339a1-e99e-4446-855b-4e41858cb64"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
